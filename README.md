@@ -7,7 +7,7 @@ The package can be used to simulate the original model or as a base for extensio
 
 ```julia
 using Pkg
-Pkg.add(url="git@github.com:bancaditalia/ABCredit.jl.git")
+Pkg.add("ABCreditt")
 ```
 
 ## Quick example
