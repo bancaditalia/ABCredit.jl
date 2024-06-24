@@ -29,9 +29,8 @@ I  = d.Investment;
 C  = d.consumption;
 U = d.Un;
 
-# load the data from FRED_data.txt
-dir = @__DIR__
-data = readdlm(dir*"/FRED_data.txt", ' ', skipstart=1)
+# load the data from FRED saved in the package as an example
+data = ABCredit.REAL_DATA_EXAMPLE
 y_real = data[:, 1];
 pi_real = data[:, 2];
 invest_real = data[:, 3];

@@ -104,3 +104,7 @@ for (i, name) in enumerate(ordered_par_names)
 end
 
 const PARAMS_RL = params
+
+real_data = readdlm(joinpath(dir, "FRED_data.txt"), ' ', Float64, skipstart=1)
+
+const REAL_DATA_EXAMPLE = real_data
