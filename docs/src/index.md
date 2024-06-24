@@ -10,7 +10,7 @@ A fast, and simple to use, Julia implementation of the model in _Emergent dynami
 
 ```julia
 using Pkg
-Pkg.add(url="git@github.com:bancaditalia/ABCredit.jl.git")
+Pkg.add("ABCredit")
 ```
 
 ## Quick example

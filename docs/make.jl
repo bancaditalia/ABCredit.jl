@@ -12,7 +12,7 @@ rm(outdir; force = true, recursive = true) # cleans up previous examples
 mkpath(outdir)
 
 Literate.markdown(joinpath(indir, "basic_example.jl"), outdir; credit = false)
-Literate.markdown(joinpath(indir, "compare_histograms.jl"), outdir; credit = false)
+# Literate.markdown(joinpath(indir, "compare_histograms.jl"), outdir; credit = false)
 Literate.markdown(joinpath(indir, "parallel_evaluations.jl"), outdir; credit = false)
 
 println("Documentation Build")
@@ -23,11 +23,11 @@ makedocs(
     pages = [
         "Home" => "index.md",
         "Essentials" => "examples/basic_example.md",
-        "Model and data" => "examples/compare_histograms.md",
+        # "Model and data" => "examples/compare_histograms.md",
         "Parallel evaluations" => "examples/parallel_evaluations.md",
-        "Runs from the terminal" => "running_from_the_terminal.md",
+        "Runs from the terminal" => "running_from_terminal.md",
         "Code reference" => "api.md",
     ],
 )
 
-# deploydocs(;repo = "github.com/bancaditalia/ABCredit.jl.git")
+deploydocs(;repo = "github.com/bancaditalia/ABCredit.jl.git")

@@ -37,7 +37,7 @@ model.params[:subsidy] = 0.0
 # Now we run the mdel for T epochs, the results simulation will output a data collector "d" with several time series.
 
 T = 1000
-d = ABCredit.run_one_sim!(model, T; seed = 100)
+d = ABCredit.run_one_sim!(model, T; seed = 100, burn_in = 100)
 
 # If needed, we can save the simulation data to a CSV file as
 
