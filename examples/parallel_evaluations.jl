@@ -2,7 +2,7 @@
 
 # import ABCredit.jl and other useful libraries
 
-using ABCredit, StatsPlots, CSV, DataFrames
+using ABCredit, StatsPlots
 
 params = ABCredit.PARAMS_ORIGINAL
 

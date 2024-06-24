@@ -1,5 +1,4 @@
 using ABCredit
-using Plots
 using Random
 using Test
 
@@ -20,8 +19,9 @@ model2 = ABCredit.initialise_model(W, F, N; params)
 d1 = ABCredit.run_one_sim!(model1, T; seed = 1)
 d2 = ABCredit.run_one_sim!(model2, T; seed = 1)
 
-plot(d1.inflationRate)
-plot!(d2.inflationRate)
+# using Plots 
+# plot(d1.inflationRate)
+# plot!(d2.inflationRate)
 
 for name in fieldnames(typeof(d1))
     @test getfield(d1, name) == getfield(d2, name)
