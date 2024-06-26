@@ -7,7 +7,7 @@ The package can be used to simulate the original model or as a base for extensio
 
 ```julia
 using Pkg
-Pkg.add("ABCreditt")
+Pkg.add("ABCredit")
 ```
 
 ## Quick example
