@@ -21,13 +21,6 @@ function capital_goods_market!(
     random_cap_firms::Vector{<:AbstractCapitalFirm},
     model::AbstractModel,
 )
-    # function body
-end
-function capital_goods_market!(
-    firm::AbstractConsumptionFirm,
-    random_cap_firms::Vector{<:AbstractCapitalFirm},
-    model::AbstractModel,
-)
 
     # amount of liquidity available to buy capital goods
     capital_budget = firm.Ftot + firm.liquidity - firm.Leff * model.agg.wb

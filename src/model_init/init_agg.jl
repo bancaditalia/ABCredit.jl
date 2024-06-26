@@ -60,8 +60,3 @@ function initialise_aggregates(params)
     return agg
 
 end
-
-
-function initialise_model(W::Int, F::Int, N::Int, params::Dict)
-    return initialise_model(W, F, N; params = params)
-end
