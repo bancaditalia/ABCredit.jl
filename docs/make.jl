@@ -30,4 +30,4 @@ makedocs(
     ],
 )
 
-deploydocs(;repo = "github.com/bancaditalia/ABCredit.jl.git")
+deploydocs(; repo = "github.com/bancaditalia/ABCredit.jl.git")

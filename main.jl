@@ -48,4 +48,3 @@ p21 = plot(d.reserves, title = "RESERVES", titlefont = 10)
 p21 = plot(d.deposits, title = "DEPOSITS", titlefont = 10)
 plot(p1, p2, p3, p4, p5, p6, p7, p8, p9, layout = (3, 3), legend = false)
 plot(p10, p11, p12, p13, p14, p15, p16, p17, p18, layout = (3, 3), legend = false)
-

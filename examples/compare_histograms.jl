@@ -6,7 +6,7 @@ using ABCredit, Statistics, Plots, DelimitedFiles
 
 # install the HPFilter and KernelDensity packages
 using Pkg
-Pkg.add(url="https://github.com/sdBrinkmann/HPFilter.jl")
+Pkg.add(url = "https://github.com/sdBrinkmann/HPFilter.jl")
 Pkg.add("KernelDensity")
 using HPFilter, KernelDensity
 
@@ -23,10 +23,10 @@ T = 1000
 d = ABCredit.run_one_sim!(model, T; seed = 100, burn_in = 300)
 
 # select some variables
-Y  = d.Y_real;
-P  = d.gdp_deflator;
-I  = d.Investment;
-C  = d.consumption;
+Y = d.Y_real;
+P = d.gdp_deflator;
+I = d.Investment;
+C = d.consumption;
 U = d.Un;
 
 # load the data from FRED saved in the package as an example
@@ -38,16 +38,21 @@ c_real = data[:, 4];
 u_real = data[:, 5];
 
 # apply HP filter to the simulated data
-y = log.(Y) - HP(log.(Y),1600);
-c = log.(C) - HP(log.(C),1600);
-invest = log.(I) - HP(log.(I),1600);
+y = log.(Y) - HP(log.(Y), 1600);
+c = log.(C) - HP(log.(C), 1600);
+invest = log.(I) - HP(log.(I), 1600);
 u = U;
 pi = diff(log.(P)) .- mean((diff(log.(P))));
 
 # plot the histograms of real and simulated data
 pdf_sim = kde(u);
 pdf_real = kde(u_real);
-p1 = plot([pdf_sim.density, pdf_real.density], title = "unemployment rate", titlefont = 10, labels=["simulated" "real"])
+p1 = plot(
+    [pdf_sim.density, pdf_real.density],
+    title = "unemployment rate",
+    titlefont = 10,
+    labels = ["simulated" "real"],
+)
 
 pdf_sim = kde(y);
 pdf_real = kde(y_real);

@@ -29,7 +29,7 @@ using ABCredit, Test
         firm.Yd = 0 #record demand
     end
 
-    ABCredit.consumption_goods_market!(consumer,cons_firms, model)
+    ABCredit.consumption_goods_market!(consumer, cons_firms, model)
 
     @test consumer.PA == 2.0 - 0.25 * F
     @test consumer.cons_budget == 1.0 - 0.25 * F

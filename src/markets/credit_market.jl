@@ -28,7 +28,8 @@ function firm_gets_credit!(firm::AbstractConsumptionFirm, model::AbstractModel)
         pr = _compute_bankruptcy_probability(firm.lev, model.params[:b1], model.params[:b2])
 
         #proposed rate depends on the estimated bankruptcy probability
-        proposed_rate = _compute_proposed_rate(pr, model.params[:mu], model.params[:theta], model.params[:interest_rate])
+        proposed_rate =
+            _compute_proposed_rate(pr, model.params[:mu], model.params[:theta], model.params[:interest_rate])
 
         #the bank gives a maximum credit depending on  maximum expected loss
         maxL = _compute_max_loan(firm.deb, model.params[:phi], model.bank.E, model.bank.E_threshold, pr)

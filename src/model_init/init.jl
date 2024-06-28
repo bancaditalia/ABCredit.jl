@@ -28,7 +28,7 @@ function initialise_model(W, F, N; params = ABCredit.PARAMS_ORIGINAL)
     params[:init_K] = 10.0
     params[:maastricht] = false
     params[:E_threshold_scale] = 0.0
-        
+
     workers = ABCredit.initialise_workers(params)
 
     ### INITIALISE CAPITAL FIRMS AND CONSUMPTION FIRMS ###
