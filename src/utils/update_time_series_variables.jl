@@ -89,7 +89,8 @@ function reset_gov_and_banking_variables!(model::AbstractModel)
     model.bank.reserves = 0.0
 
     model.gov.TA = 0 #reset government revenues and expenditure
-    model.gov.G = 0
+    model.gov.G = 0 
+    model.gov.GB = 0.0
     model.gov.EXP = 0.0
 
 end
