@@ -45,7 +45,8 @@ const PARAMS_ORIGINAL = Dict(
     #hard coded parameters
     :wb => 1.0,                #initial wage rate
     :tax_rate_d => 0.00,      #taxes on dividends (set to zero)
-    :r_f => 0.01,           #general refinancing rate
+    :r_f => 0.01,            #general refinancing rate
+    :E_threshold_scale => 0.0 
 )
 
 par[to_be] = estimated
@@ -88,6 +89,7 @@ const PARAMS_GRAZZINI = Dict(
     :wb => 1.0,                #initial wage rate
     :tax_rate_d => 0.00,      #taxes on dividends (set to zero)
     :r_f => 0.01,           #general refinancing rate
+    :E_threshold_scale => 0.0 
 )
 
 

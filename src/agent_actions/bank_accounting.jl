@@ -19,7 +19,7 @@ function bank_accounting!(bank::AbstractBank, model::AbstractModel)
     cap_firms = model.capital_firms
 
     # update profits from government loans
-    bank.profitsB += model.gov.bond_interest_rate * model.gov.bonds
+    # bank.profitsB += model.gov.bond_interest_rate * model.gov.bonds
 
     #pay dividends
     div_B = 0.3

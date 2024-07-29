@@ -21,10 +21,7 @@ function gov_accounting!(gov::AbstractGovernment, model::AbstractModel)
 
     gov.GB -= gov.bond_interest_rate * gov.bonds # - model.EXP # public expenditure to corporate sector is zero now
     gov.stock_bonds = model.gov.stock_bonds - gov.GB
-    model.bank.loans += min(0, gov.GB) # add new loans
     gov.bonds = max(0, model.gov.stock_bonds)
-
-
     gov.deficitGDP = -gov.GB / model.agg.Y_nominal_tot
 
 end
