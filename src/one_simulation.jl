@@ -64,5 +64,8 @@ function run_n_sims(model, T, n_sims; burn_in = 0)
         data = run_one_sim!(model_i, T; burn_in = burn_in)
         data_vector[i] = data
     end
+
+    data_vector = DataVector(data_vector)
+
     return data_vector
 end

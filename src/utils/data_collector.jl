@@ -32,6 +32,7 @@ ABCreditData is a mutable struct to collect the data for the ABCredit model.
 - `GB::Vector{Float64}`: Government budget values over time.
 - `deficitGDP::Vector{Float64}`: Government deficit as a percentage of GDP values over time.
 - `bonds::Vector{Float64}`: Government bonds values over time.
+- `loans::Vector{Float64}`: Bank loans values over time.
 - `reserves::Vector{Float64}`: Bank reserves values over time.
 - `deposits::Vector{Float64}`: Bank deposits values over time.
 
@@ -61,6 +62,8 @@ mutable struct ABCreditData <: AbstractABCreditData
     inventories_k::Vector{Float64}
     liquidity::Vector{Float64}
     liquidity_k::Vector{Float64}
+    leverage::Vector{Float64}
+    leverage_k::Vector{Float64}
 
 
     ### banking ###
@@ -70,11 +73,12 @@ mutable struct ABCreditData <: AbstractABCreditData
     GB::Vector{Float64}
     deficitGDP::Vector{Float64}
     bonds::Vector{Float64}
+    loans::Vector{Float64}
     reserves::Vector{Float64}
     deposits::Vector{Float64}
 
     function ABCreditData(T::Int64)
-        d = new([zeros(T + 1) for _ in 1:24]...)
+        d = new([zeros(T + 1) for _ in 1:27]...)
         return d
     end
 end
@@ -112,6 +116,7 @@ function update_bank_data!(d::AbstractABCreditData, model::AbstractModel)
     deposits = w_PA + cf_PA + capf_PA
     d.deposits[i] = deposits
     d.reserves[i] = model.bank.E + deposits - model.bank.loans
+    d.loans[i] = model.bank.loans
 end
 
 function update_firm_data!(d::AbstractABCreditData, model::AbstractModel)
@@ -132,6 +137,8 @@ function update_firm_data!(d::AbstractABCreditData, model::AbstractModel)
     d.liquidity[i] = sum(firm.liquidity for firm in model.consumption_firms)
     d.liquidity_k[i] = sum(firm.liquidity_k for firm in model.capital_firms)
 
+    d.leverage[i] = sum(firm.lev for firm in model.consumption_firms) 
+    d.leverage_k[i] = sum(firm.lev_k for firm in model.capital_firms)
 end
 
 function update_gov_data!(d::AbstractABCreditData, model::AbstractModel)
@@ -197,6 +204,19 @@ function load_csv(csv_name::AbstractString)
 end
 
 
-# overloading "getproperty" to allow for easy access to data in a vector of data structs
-import Base: getproperty
-getproperty(a::Vector{ABCreditData}, v::Symbol) = hcat([getproperty(d, v) for d in a]...)
+struct DataVector
+    vector::Vector{AbstractABCreditData}
+end
+
+# Define the getproperty function for the DataVector struct
+# This function allows for the extraction of fields from the Data struct
+# by using the dot syntax
+function Base.getproperty(dv::DataVector, name::Symbol)
+    if name in fieldnames(ABCreditData)
+        # If the field name exists in the `a` struct, extract it from all elements
+        return hcat([getproperty(d, name) for d in dv.vector]...)
+    else
+        # Fallback to default behavior for other fields
+        return getfield(dv, name)
+    end
+end
