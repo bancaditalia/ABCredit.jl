@@ -45,8 +45,20 @@ plot(d.Y_real)
 
 ## Citing _ABCredit_
 
-If you found this package useful for your research, please cite the following publication
+If you found this package useful for your research, please cite (one of) the following publication(s): the research works that made it possible to develop and release _ABCredit.jl_.
 
+In this work, we extend _ABCredit.jl_ with reinforcement learning agents:
+```bib
+@inproceedings{brusatin2024simulating,
+  title={Simulating the economic impact of rationality through reinforcement learning and agent-based modelling},
+  author={Brusatin, Simone and Padoan, Tommaso and Coletta, Andrea and Delli Gatti, Domenico and Glielmo, Aldo},
+  booktitle={Proceedings of the 5th ACM International Conference on AI in Finance},
+  pages={159--167},
+  year={2024}
+}
+```
+
+In this work, we calibrate _ABCredit.jl_ efficiently using reinforcement learning to select search methods (the calibration code is [here](https://github.com/bancaditalia/black-it/blob/main/examples/RL_to_combine_search_methods.ipynb)):
 ```bib
 @inproceedings{glielmo2023reinforcement,
   title={Reinforcement Learning for Combining Search Methods in the Calibration of Economic ABMs},
