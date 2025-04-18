@@ -45,7 +45,7 @@ plot(data.Y_real)
 
 ## Original author
 
-- [Aldo Glielmo](https://github.com/AldoGl) <[aldo.glielmo@bancaditalia.it](mailto:aldo.glielmo@bancaditalia.it)>
+- [Aldo Glielmo](https://github.com/aldoglielmo) <[aldo.glielmo@bancaditalia.it](mailto:aldo.glielmo@bancaditalia.it)>
 
 ## Other collaborators for the project
 
