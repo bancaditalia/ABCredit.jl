@@ -182,7 +182,7 @@ Save the data from the `ABCreditData` object to a CSV file with the given name.
 - `csv_name::AbstractString`: The name of the CSV file to be created.
 
 """
-function save_csv(d::ABCreditData, csv_name::AbstractString)
+function save_csv(d::AbstractABCreditData, csv_name::AbstractString)
     # define a CSV
     df = DataFrame()
 
